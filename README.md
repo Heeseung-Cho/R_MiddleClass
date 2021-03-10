@@ -30,4 +30,5 @@ This is an middle-level course on statistical analysis with R. This course will 
 
 ## Reference
 Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani - An Introduction to Statistical Learning with Applications in R(가볍게 시작하는 통계학습 - R로 실습하는) (2016)
+
 Park, Jin Pyo (Chungnam Univ.) - Data analysis with R(R을 이용한 자료분석) (2014)
