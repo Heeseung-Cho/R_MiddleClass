@@ -8,7 +8,7 @@ This provides basic code and statistic analysis with R. If you have any question
 
 This is an middle-level course on statistical analysis with R. This course will be easy to understand if you have some knowledge of statistics or coding. Also, this course will be useful not only job seeker but also employees who is working in industry.
 
-본 강의는 중급자를 위한 R을 이용한 통계분석으로, 통계나 코딩에 대한 약간의 이해가 있다면 이해하기 쉬울 것입니다. 또한 본 강의는 취준생 뿐만 아니라, 산업에 종사하고 계신 현업자 분들께도 매우 유익한 강의가 될 것입니다.
+본 강의는 중급자를 위한 R을 이용한 통계분석으로, 통계나 코딩에 대한 약간의 이해가 있다면 강의를 충분히 이해하실 수 있습니다. 또한 본 강의는 취준생 뿐만 아니라, 산업에 종사하고 계신 현업자 분들께도 매우 유익한 강의가 될 것입니다.
 
 
 ## Syllabus
