@@ -1,7 +1,4 @@
 #Run each line: ctrl+Enter 
-install.packages("MASS")
-library(MASS)
-
 
 ##0.Before Start
 x = 1
@@ -154,7 +151,29 @@ arr2 = array(8:1, c(2,2,2), dimnames = list(c("row1","row2"),c("col1","col2"),c(
 is.array(arr1)
 
 
-## 7. 
+print(arr1)                           #Array1 전체 출력
+print(arr2)                           #Array2 전체 출력
+print(dim(arr1))                      #Array1 차원 출력
+print(dim(arr2))                      #Array2 차원 출력
+attr(arr1, 'dim')                     #Array1 차원 속성 출력
+attr(arr2, 'dimnames')                #Array2 차원이름 속성 출력
+print(arr1[,,1])                      #Array1 첫번째 dime 출력
+print(arr1[2,,2])                     #Array1 두번째 dim, 두번째 row 출력
+print(arr2[,,'dim2'])                 #Array2 dim2 원소 출력
+print(arr2['row1','col2','dim2'])     #Array2 row1, col2, dim2 원소 출력
+
+## 7. Factor
+gender = c('Male','Female','Female','Female','Male')
+gender_fac = factor(gender)
+print(gender)
+print(gender_fac)
+
+grade = c('Excellent!!','Great!',"Good","So so","Oops!","Bad..")
+grade_fac = factor(grade)
+grade_order = factor(grade, ordered = TRUE, levels = grade)
+print(grade)
+print(grade_fac)
+print(grade_order)
 
 
 ## If
@@ -250,12 +269,10 @@ while(x<20){
 calculator = function(x,y){
   return(x+y)
 }
-calculator(1,2)
+result = calculator(1,2)
+print(result)
 
 printer = function(str){
   print(str)
 }
-print("Hello World!")
-
-
-
+printer("Hello World!")
