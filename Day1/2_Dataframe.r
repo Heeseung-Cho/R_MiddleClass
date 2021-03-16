@@ -30,4 +30,10 @@ Test[1:10,2:3]      #1~10행, 2~3 열
 ## 2.Load Data Frame
 load_data = read.csv("example_data.csv", header=TRUE)
 head(load_data)
-na.omit(load_data)
+
+## 3. Save Data Frame
+if(!dir.exists("save_data")){  ## 해당 폴더가 없으면 폴더 생성
+  dir.create("save_data")
+}
+write.csv(Test, 'save_data/mydata.csv')
+write.table(Test, 'save_data/mydata.txt', sep = "\t")
