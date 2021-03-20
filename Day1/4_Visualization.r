@@ -46,22 +46,51 @@ par(mfrow = c(1,1))
 # Import library ggplot2
 library(ggplot2)
 
-base1 = ggplot(data = iris, mapping = aes(x = Sepal.Width, y = Sepal.Length))
+base1 = ggplot(data = iris, mapping = aes(x = Sepal.Width, y = Sepal.Length)) +
+  theme(text = element_text(size=25))
+#1
 base1 + geom_point() + ggtitle("Scatter")            #산점도
+#2
 base1 + geom_line()  + ggtitle("Line")               #선 그래프
+#3
 base1 + geom_point() + geom_line() + ggtitle("Both") #동시에
-
+#4
 base1 + geom_point() + ggtitle("Scatter with hline") +
-   geom_hline(yintercept = mean(iris$Sepal.Length)) #수평선 추가
-
-base2 = ggplot(data = iris, mapping = aes(x = Sepal.Width, y = Species))
+  geom_hline(yintercept = mean(iris$Sepal.Length)) #수평선 추가
+#5
+base2 = ggplot(data = iris, mapping = aes(y = Species, x = Sepal.Width))+
+  theme(text = element_text(size=25))
 base2 + geom_boxplot(notch = TRUE) + ggtitle("Box")  #박스 그래프
 base2 + geom_violin() + ggtitle("Violin")            #바이올린 그래프
-
-base3 = ggplot(data = iris, mapping = aes(x = Petal.Length))
-base3 + geom_histogram(binwidth = 1) +ggtitle("Histogram") #히스토그램
+#6
+base3 = ggplot(data = iris, mapping = aes(x = Petal.Length))+
+  theme(text = element_text(size=25))
+base3 + geom_histogram(binwidth = 1) +ggtitle("Histogram") #히스토그램                            
 
 ## Stat
+#1
+ggplot(data.frame(x = c(-pi,pi)), aes(x=x)) +
+  stat_function(fun = sin, size = 1) + ggtitle("Sine") +
+  theme(text = element_text(size=25))                      #Sine Function
+#2
+curve = function(x){return(x^2)}
+ggplot(data.frame(x = c(-3,3)), aes(x=x)) + 
+  stat_function(fun = curve, size = 1) + ggtitle("y=x^2") + 
+  theme(text = element_text(size=25))                      #y=x^2 function
+#3
+base1 + geom_point() + stat_summary(fun = "mean", colour = "red", size = 2, geom = "point")
+#4
+base2 + stat_summary(aes(y = Sepal.Width), fun = "mean", geom = "bar") +
+  ggtitle("Mean of Sepal.Length")
+#5
+base4 = ggplot(data = iris, mapping = aes(x = Sepal.Width, y = Sepal.Length , z= Petal.Width)) +
+  theme(text = element_text(size=25))
+base4 + stat_summary_2d() + ggtitle("Heatmap")              #Heatmap
+#6
+base5 = ggplot(data = iris, mapping = aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  theme(text = element_text(size=25))
+base5 + geom_point() + stat_ellipse() + ggtitle("Cluster by Species")
+
 
 ## Scale
 install.packages("patchwork")
@@ -74,7 +103,7 @@ base1 + geom_point() + ggtitle("Your Labels") +    #Labe 변경
 base1 + geom_point() + ggtitle("Limited") +        #범위 변경
   xlim(c(2.5,4.0)) + ylim(c(5,7))
 base1 + geom_point(aes(alpha = Species)) + ggtitle("Alpha")+ #Species마다 진하기 변경
-base1 + geom_point(aes(alpha = Species)) + ggtitle("Alpha <0.3")+ #색상 진하기 변경
+  base1 + geom_point(aes(alpha = Species)) + ggtitle("Alpha <0.3")+ #색상 진하기 변경
   scale_alpha_discrete(range = c(0.1,0.3))
 base1 + geom_point(aes(colour = Species)) + ggtitle("Color")+
   scale_colour_hue()
