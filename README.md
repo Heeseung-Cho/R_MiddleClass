@@ -17,8 +17,8 @@ This is an middle-level course on statistical analysis with R. This course will 
 |1| 4/7 | Introduction | R 개요 | 
 |2| 4/7 | R Basic | R 기본 문법 |
 |3| 4/7 | DataFrame | 데이터프레임 다루기 |
-|4| 4/7 | Handling data | 데이터 핸들링 |
-|5| 4/7 | Visualization | 시각화 |
+|4| 4/7 | Visualization | 시각화 |
+|5| 4/7 | Handling data | 데이터 핸들링 |
 |6| 4/8 | Statistic summary | 통계분석 개요 |
 |7| 4/8 | Basic stats and test | 기초통계 및 가설검증 |
 |8| 4/8 | Regression | 회귀분석 |
@@ -32,3 +32,4 @@ This is an middle-level course on statistical analysis with R. This course will 
 Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani - An Introduction to Statistical Learning with Applications in R(가볍게 시작하는 통계학습 - R로 실습하는) (2016)
 
 Park, Jin Pyo (Chungnam Univ.) - Data analysis with R(R을 이용한 자료분석) (2014)
+
