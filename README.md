@@ -33,3 +33,4 @@ Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani - An Introduction
 
 Park, Jin Pyo (Chungnam Univ.) - Data analysis with R(R을 이용한 자료분석) (2014)
 
+KoDB(한국데이터진흥원) - The Guide for Advanced Data Analysis Professional (데이터 분석 전문가 가이드)
