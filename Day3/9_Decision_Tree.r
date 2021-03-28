@@ -13,7 +13,7 @@ ggplot(iris,
                     label="Species", color = "black") 
 
 ## Regression
-tree.boston = tree(medv~rm+lstat, Boston, subset = train)
+tree.boston = tree(medv~rm+lstat, Boston)
 ggplot(Boston, 
        aes(rm, lstat, color=medv)) + theme(text = element_text(size=20)) + 
   geom_point() + 
