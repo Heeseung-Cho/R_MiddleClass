@@ -4,21 +4,6 @@ library(tree)
 library(MASS)
 library(ISLR)
 
-### 0.Example code, partition.tree only allow 1 or 2 features
-## Classification
-ggplot(iris, 
-       aes(Petal.Width, Sepal.Width, color=Species)) + theme(text = element_text(size=20)) + 
-  geom_point() +
-  gg.partition.tree(tree(Species ~ Sepal.Width + Petal.Width, data=iris), 
-                    label="Species", color = "black") 
-
-## Regression
-tree.boston = tree(medv~rm+lstat, Boston)
-ggplot(Boston, 
-       aes(rm, lstat, color=medv)) + theme(text = element_text(size=20)) + 
-  geom_point() + 
-  gg.partition.tree(tree.boston, color = "red") 
-
 
 ### 1. Classification Tree
 library(ISLR)
@@ -83,7 +68,28 @@ plot(Boston$rm, Boston$lstat, xlab="rm", ylab="lstat")
 partition.tree(tree.boston, add = T, cex = 1.5)
 
 
-## ggplot code, Execute before running example code
+
+
+####################################
+#### Plotting, Not lecture Note ####
+####################################
+### 0.Example code, partition.tree only allow 1 or 2 features
+## Classification
+ggplot(iris, 
+       aes(Petal.Width, Sepal.Width, color=Species)) + theme(text = element_text(size=20)) + 
+  geom_point() +
+  gg.partition.tree(tree(Species ~ Sepal.Width + Petal.Width, data=iris), 
+                    label="Species", color = "black") 
+
+## Regression
+tree.boston = tree(medv~rm+lstat, Boston, subset = train)
+ggplot(Boston, 
+       aes(rm, lstat, color=medv)) + theme(text = element_text(size=20)) + 
+  geom_point() + 
+  gg.partition.tree(tree.boston, color = "red") 
+
+
+## ggplot code
 gg.partition.tree <- function (tree, label = "yval", ordvars, ...) 
 {
   ptXlines <- function(x, v, xrange, xcoord = NULL, ycoord = NULL, 
