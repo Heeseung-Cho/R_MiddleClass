@@ -1,7 +1,6 @@
 data(iris)
 head(iris)
 
-## Filter
 ind = rep(c(T,F),75)
 iris[ind,]                        #홀수 행만 추출
 iris[iris$Species == 'setosa',]   #setosa종 iris만 추출
@@ -14,12 +13,11 @@ data(Cars93)
 anyNA(Cars93)           #해당 데이터프레임에 NA가 있는지?: TRUE
 is.na(Cars93)           #각 값들이 NA인지 확인
 sum(is.na(Cars93))      #NA의 개수 파악 : 13
+
 Cars93[is.na(Cars93$Luggage.room),c(1,2,3,24,25)]
 
-#Remove NA rows
 na.omit(Cars93)
 
-#Change NA elements
 ind_na = which(Cars93$Luggage.room %in% c(NA))   ##NA인 index 
 Cars93[ind_na,]$Luggage.room = 0                 ##NA 값을 0으로 변환
 Cars93[ind_na,c(1,2,3,24,25)]
@@ -48,7 +46,21 @@ install.packages("fastDummies")
 library(fastDummies)
 dummy_cols(iris, select_columns = 'Species')
 
-## Outlier
-library(ggplot2)
-data(mpg)       ##ggplot2 data
-summary(mpg$cty)
+# Dummy from continuous
+bin = seq(min(iris$Sepal.Length)-0.1,max(iris$Sepal.Length)+0.1, length.out = 4)
+iris$interval = cut(iris$Sepal.Length, bin)
+dummy_cols(iris, select_columns = 'interval')
+
+## dplyr package
+install.packages("dplyr")
+library(dplyr)
+# Filter
+iris %>% filter(Species == 'setosa')
+# Select
+iris %>% select(Sepal.Length, Petal.Length, Species)
+# New column
+iris %>% mutate(Mean.Length = (Sepal.Length + Petal.Length)/2)
+# Summarize
+iris %>% summarize(Sepal = Sepal.Length+Sepal.Width)
+# Group by
+iris %>% group_by(Species) %>% summarize(Mean = mean(Sepal.Length))
