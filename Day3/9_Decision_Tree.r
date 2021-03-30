@@ -67,6 +67,19 @@ tree.boston = tree(medv~rm+lstat, Boston, subset = train)
 plot(Boston$rm, Boston$lstat, xlab="rm", ylab="lstat")
 partition.tree(tree.boston, add = T, cex = 1.5)
 
+### 3. Random Forest
+install.packages("randomForest")
+library(randomForest)
+
+# Model
+rf.boston = randomForest(medv~., Boston, subset = train)
+
+# Train
+train_pred = predict(rf.boston, Boston[train,])
+rsq(Boston[train, "medv"], train_pred)
+# Test
+test_pred = predict(rf.boston, Boston[-train,])
+rsq(Boston[-train, "medv"], test_pred)
 
 
 
@@ -87,6 +100,7 @@ ggplot(Boston,
        aes(rm, lstat, color=medv)) + theme(text = element_text(size=20)) + 
   geom_point() + 
   gg.partition.tree(tree.boston, color = "red") 
+
 
 
 ## ggplot code
