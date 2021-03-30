@@ -29,7 +29,7 @@ This is an middle-level course on statistical analysis with R. This course will 
 |13| 4/9 | Practice 2 | 실습과정 2 |
 
 ## Reference
-Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani - An Introduction to Statistical Learning with Applications in R(가볍게 시작하는 통계학습 - R로 실습하는) (2016)
+Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani - An Introduction to Statistical Learning with Applications in R(ISLR, 가볍게 시작하는 통계학습 - R로 실습하는) (2016)
 
 Park, Jin Pyo (Chungnam Univ.) - Data analysis with R(R을 이용한 자료분석) (2014)
 
