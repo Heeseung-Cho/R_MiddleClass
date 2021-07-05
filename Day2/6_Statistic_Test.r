@@ -1,24 +1,22 @@
 data('iris')
 
 ### Confidence Interval
-sample.mean = mean(iris$Sepal.Length)     #평균
-sample.n = length(iris$Sepal.Length)      #표본 수
-sample.sd = sqrt(sd(iris$Sepal.Length))   #분산
+sample.mean = mean(iris$Sepal.Length)     # 평균
+sample.n = length(iris$Sepal.Length)      # 표본수
+sample.sd = sd(iris$Sepal.Length)         # 분산
 
 alpha = 0.05
-degrees.freedom = sample.n - 1            #자유도
-score = qnorm(p=1-alpha/2)                #신뢰상수, 95%=1.96
+degrees.freedom = sample.n - 1            # 자유도
+score = qnorm(p=1-alpha/2)                # 신뢰상수, 95%=1.96
 
-margin.error = score * sample.se
+margin.error = (score * sample.sd)/sample.n
 lower.bound = sample.mean - margin.error
 upper.bound = sample.mean + margin.error
 print(c(lower.bound,upper.bound))
 
 #Short cut
 ci_Sepal.Length = lm(Sepal.Length~1, data= iris)
-confint(ci_Sepal.Length, level = 0.95)   # 이때는 t분포를 따름
-
-
+confint(ci_Sepal.Length, level = 0.95)   #이때는 t분포를 따름
 
 ### t-test
 ## equal
