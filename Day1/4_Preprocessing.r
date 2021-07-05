@@ -65,6 +65,7 @@ iris %>% summarize(Sepal = Sepal.Length+Sepal.Width)
 # Group by
 iris %>% group_by(Species) %>% summarize(Mean = mean(Sepal.Length))
 
+## Detecting Outlier
 summary(mpg$cty)
 #Plot
 ggplot(mpg, aes(y = cty)) +
