@@ -64,3 +64,13 @@ iris %>% mutate(Mean.Length = (Sepal.Length + Petal.Length)/2)
 iris %>% summarize(Sepal = Sepal.Length+Sepal.Width)
 # Group by
 iris %>% group_by(Species) %>% summarize(Mean = mean(Sepal.Length))
+
+summary(mpg$cty)
+#Plot
+ggplot(mpg, aes(y = cty)) +
+  geom_boxplot() + theme(text = element_text(size = 25))
+
+# Check Outlier
+mpg[mpg$cty >= quantile(mpg$cty,0.95),]
+# Remove Outlier
+mpg[-(mpg$cty >= quantile(mpg$cty,0.95)),]
